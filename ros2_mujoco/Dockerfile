@@ -52,10 +52,10 @@ ENV LD_LIBRARY_PATH=/opt/mujoco/mujoco/lib:${LD_LIBRARY_PATH}
 ENV CPATH=/opt/mujoco/mujoco/include:${CPATH}
 ENV LIBRARY_PATH=/opt/mujoco/mujoco/lib:${LIBRARY_PATH}
 
-# ======== 安装 MuJoCo Python 库 ========
-# 先安装 Python 绑定（pip 会检测到已安装的 MuJoCo 原生库）
+# ======== 安装 MuJoCo Python 绑定 ========
+# dm_control 和 gymnasium[mujoco] 会自动拉取 mujoco Python 绑定作为依赖
+# MUJOCO_DIR 环境变量会让 Python 绑定优先使用我们手动下载的原生库，而非 wheel 内嵌的
 RUN pip3 install --no-cache-dir \
-    mujoco \
     dm_control \
     gymnasium[mujoco]
 
