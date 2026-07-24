@@ -52,13 +52,6 @@ ENV LD_LIBRARY_PATH=/opt/mujoco/mujoco/lib:${LD_LIBRARY_PATH}
 ENV CPATH=/opt/mujoco/mujoco/include:${CPATH}
 ENV LIBRARY_PATH=/opt/mujoco/mujoco/lib:${LIBRARY_PATH}
 
-# ======== 安装 MuJoCo Python 绑定 ========
-# dm_control 和 gymnasium[mujoco] 会自动拉取 mujoco Python 绑定作为依赖
-# MUJOCO_DIR 环境变量会让 Python 绑定优先使用我们手动下载的原生库，而非 wheel 内嵌的
-RUN pip3 install --no-cache-dir \
-    dm_control \
-    gymnasium[mujoco]
-
 # ======== MuJoCo 使用默认 GLFW 窗口渲染 (GUI 模式) ========
 # 运行容器时需挂载 X11 socket:
 #   docker run -it --rm \
