@@ -61,6 +61,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-reco
     gnupg2 \
     software-properties-common \
     xdg-utils \
+    ros-humble-foxglove-bridge \
+    nautilus \
     # ======== 清理 apt 缓存 ========
     && apt-get autoremove -y \
     && apt-get clean -y \
