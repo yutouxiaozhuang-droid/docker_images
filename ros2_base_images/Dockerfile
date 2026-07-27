@@ -105,6 +105,10 @@ RUN groupadd --gid $USER_GID $USERNAME \
 RUN mkdir -p /home/$USERNAME/.config/nushell \
     && chown -R $USERNAME:$USERNAME /home/$USERNAME/.config
 
+# ======== 配置 ROS2 环境自动加载 ========
+RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc \
+    && echo "source /opt/ros/humble/setup.bash" >> /home/$USERNAME/.bashrc
+
 # 恢复交互式前端
 ENV DEBIAN_FRONTEND=dialog
 
