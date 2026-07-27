@@ -53,7 +53,8 @@ ENV CPATH=/opt/mujoco/mujoco/include:${CPATH}
 ENV LIBRARY_PATH=/opt/mujoco/mujoco/lib:${LIBRARY_PATH}
 
 # ======== 安装 MuJoCo Python 绑定 ========
-RUN pip install mujoco
+RUN pip install mujoco \
+pynput
 
 # ======== MuJoCo 使用默认 GLFW 窗口渲染 (GUI 模式) ========
 # 运行容器时需挂载 X11 socket:
